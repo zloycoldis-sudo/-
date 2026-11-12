@@ -1,0 +1,12 @@
+services:
+  hvylia-api:
+    build: .
+    container_name: hvylia-api
+    ports:
+      - "5000:8080"     # http://localhost:5000
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      # Налаштування розрахунків можна перевизначати без пересборки:
+      # Calc__DistributionTariffUahPerKwh: "1.5"
+      # Calc__FuelLitersPerKwh: "0.28"
+    restart: unless-stopped
